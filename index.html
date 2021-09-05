@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>function to add todo</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.9/tailwind.min.css">
+
+</head>
+<body>
+
+    <div id="app">
+        <div class="container">
+            <h1>Function to add todo task</h1>
+            <input type="text" placeholder="Type Task" v-model="todo">
+            <button value="Add Todo" @click="addTodo">Add todo</button>
+            <ul>
+                <li v-for="todo in todos">
+                    {{todo}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                todo: '',
+                todos:[]
+            },
+            methods: {
+                addTodo(){
+                    this.todos.push(this.todo)
+                    this.todo = ''
+                }
+            },
+        })
+    </script>
+
+</body>
+</html>
